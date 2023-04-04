@@ -11,10 +11,10 @@
                     <div class="col-lg-12 text-center">
                     <h1>Add Student</h1>
                 </div>
-                    <form @submit.prevent="addStudent" class="row needs-validation" novalidate>
+                    <form @submit.prevent="addStudent" class="row needs-validation" >
                             <div class="row d-grid gap-3">
                                 <div class="form-floating">
-                                        <input name="name" id="validationCustom01" v-model="student.name" type="text" class="form-control"  placeholder="Student Name" required>
+                                        <input name="name" id="validationCustom02" v-model="student.name" type="text" class="form-control"  placeholder="Student Name" required>
                                         <label class="label" for="floatingPassword">Name</label>
                                 </div>
                                 <div class="form-floating">
