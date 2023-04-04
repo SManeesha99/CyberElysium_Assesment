@@ -58,15 +58,20 @@
                                         <td>{{ student.age }}</td>
                                         <td><img class="stImg" :src="student.image" width="100px"/></td>
                                         <td>
-                                            <span v-if="student.status == 'active' "><div class="activestatus"></div></span>
+                                            <span v-if="student.status == 'active' " ><div class="activestatus"></div></span>
                                             <span v-else><div class="deactivestatus"></div></span>
                                         </td>
                                         <td>
-                                            <Link @click.prevent="deleteStudent(student.id)" ><i class="fas fa-trash-alt ms-3 icon" style="color: #db0000;"></i></Link>
+                                            <div class="btn-group-vertical">
+                                            Status :<Link v-if="student.status == 'active'" @click.prevent="updateStatus(student.id)" type="button"><i class="fas fa-toggle-on ms-5 icon" style="color: black;"></i></Link>
+                                            <Link v-else @click.prevent="updateStatus(student.id)" type="button"><i class="fas fa-toggle-off ms-5 icon" style="color: black;"></i></Link>
+                                            <hr>
+                                            Edit Student Details : <Link @click.prevent="editStudent(student.id)" type="button" data-bs-toggle="modal" data-bs-target="#updatemodal"><i class="fas fa-user-edit ms-5 icon" style="color: #0844aa;"></i></Link>
+                                            <hr>
+                                            Delete Student : <Link @click.prevent="deleteStudent(student.id)" ><i class="fas fa-trash-alt ms-5 icon" style="color: #db0000;"></i></Link>
 
-                                            <Link v-if="student.status == 'active'" @click.prevent="updateStatus(student.id)" type="button"><i class="fas fa-user-slash ms-3 icon" style="color: #d60000;"></i></Link>
-                                            <Link v-else @click.prevent="updateStatus(student.id)" type="button"><i class="fas fa-user-alt ms-3 icon" style="color: #03b300;"></i></Link>
-                                            <Link @click.prevent="editStudent(student.id)" type="button" data-bs-toggle="modal" data-bs-target="#updatemodal"><i class="fas fa-user-edit ms-3 icon" style="color: #0844aa;"></i></Link>
+                                            </div>
+
                                         </td>
                                 </tr>
                             </tbody>
